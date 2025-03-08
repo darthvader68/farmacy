@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><img src="img/logo.jpg" id="logo_img">FarmaSaúde</div>
+            <div class="nav_links">
+                <a href="#inicio">Início</a>
+                <a href="#produtos">Produtos</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#contato">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero_content">
+            <h1>Bem-vindo a FarmaSaúde</h1>
+            <p>Sua saúde é nossa prioridade</p>
+        </div>
+    </section>
+
+    <section class="produtos" id="produtos">
+        <h2>Nossos Produtos</h2>
+        <div class="produtos_grid" id="produtos_container">
+            <!-- Produtos serão inseridos via JavaScript -->
+        </div>
+    </section>
+
+    <section class="servicos" id="servicos">
+        <div class="servicos_container">
+            <h2>Nossos Serviços</h2>
+            <div class="servicos_grid">
+                <div class="servicos_card">
+                    <h3>Aplicação de Injeções</h3>
+                    <p>Profissionais capacitados para aplicação segura de medicamentos injetáveis.</p>
+                </div>
+                <div class="servicos_card">
+                    <h3>Aferição de Pressão</h3>
+                    <p>Medição precisa da pressão arterial com equipamentos modernos.</p>
+                </div>
+                <div class="servicos_card">
+                    <h3>Teste de Glicemia</h3>
+                    <p>Monitoramento dos níveis de glicose no sangue.</p>
+                </div>                
+            </div>
+        </div>
+    </section>
+    
+    <section class="contato" id="contato">
+        <h2>Entre em Contato</h2>
+        <form id="contato_form">
+            <div class="form_group">
+                <label for="nome">Nome: </label>
+                <input type="text" id="nome" required>
+            </div>
+            <div class="form_group">
+                <label for="email">Email: </label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form_group">
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" rows="5" required></textarea>
+           </div>
+           <button type="submit" class="btn">Enviar mensagem</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 FarmaSaúde. Todos os direitos reservados.</p>
+        <p>Por Milton Gomes, desenvolvedor web.</p>
+    </footer>
+
+    <script>
+
+        // dados dos produtos 
+        const produtos = [
+            {
+                nome: "Vitamina C",
+                preco: "R$ 25,90",
+                imagem: "img/vitamina_c.png"
+            },
+            {
+                nome: "Protetor Solar",
+                preco: "R$ 45,90",
+                imagem: "img/protetor_solar.png"
+            },
+            {
+                nome: "Antialérgico",
+                preco: "R$ 15,90",
+                imagem: "img/antialergico.png"
+            },
+            {
+                nome: "Mascara Facial",
+                preco: "R$ 5,90",
+                imagem: "img/mascara_facial.png"
+            },
+            
+        ];
+
+        //funcao para criar os cards dos produtos
+        function criarProdutos() {
+            const container = document.getElementById('produtos_container');
+
+            produtos.forEach(produto => {
+                const card = document.createElement('div');
+                card.className = 'produto_card';
+
+                card.innerHTML = `
+                    <img src="${produto.imagem}" alt="${produto.nome}">
+                    <h3>${produto.nome}</h3>
+                    <p class="preco">${produto.preco}</p>
+                    <button class="btn" onclick="comprarProduto('${produto.nome}')">Comprar</button>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        //funcao para simular compra
+        function comprarProduto(nome) {
+            alert(`Produto ${nome} adicionado ao carrinho!`);
+        }
+
+        //manipulacao do formulario de contato
+        document.getElementById('contato_form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const mensagem = document.getElementById('mensagem').value;
+
+            alert(`Mensagem enviada!\nNome: ${nome}\nEmail: ${email}\nMensagem: ${mensagem}`);
+            this.reset();
+        });
+
+        //inicializar produtos
+        window.onload = criarProdutos;
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,333 @@
+site farmacia:
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmaSaúde - Sua Farmácia de Confiança</title>
+    <style>
+
+	fonte:
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Kumbh+Sans:wght@100..900&family=Marvel:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Sofadi+One&display=swap');
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header */
+        header {
+            background-color: #2c5282;
+            color: white;
+            padding: 1rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Produtos */
+        .produtos {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .produtos h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .produtos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .produto-card {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .produto-card img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .produto-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .produto-card .preco {
+            color: #2c5282;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            background-color: #2c5282;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Serviços */
+        .servicos {
+            background-color: ç
+            padding: 4rem 2rem;
+        }
+
+        .servicos-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .servicos h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .servico-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Contato */
+        .contato {
+            padding: 4rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contato h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c5282;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Responsividade para Celulares (max-width: 480px)*/
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">FarmaSaúde</div>
+            <div class="nav-links">
+                <a href="#inicio">Início</a>
+                <a href="#produtos">Produtos</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#contato">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Bem-vindo à FarmaSaúde</h1>
+            <p>Sua saúde é nossa prioridade</p>
+        </div>
+    </section>
+
+    <section class="produtos" id="produtos">
+        <h2>Nossos Produtos</h2>
+        <div class="produtos-grid" id="produtos-container">
+            <!-- Produtos serão inseridos via JavaScript -->
+        </div>
+    </section>
+
+    <section class="servicos" id="servicos">
+        <div class="servicos-container">
+            <h2>Nossos Serviços</h2>
+            <div class="servicos-grid">
+                <div class="servico-card">
+                    <h3>Aplicação de Injeções</h3>
+                    <p>Profissionais capacitados para aplicação segura de medicamentos injetáveis.</p>
+                </div>
+                <div class="servico-card">
+                    <h3>Aferição de Pressão</h3>
+                    <p>Medição precisa da pressão arterial com equipamentos modernos.</p>
+                </div>
+                <div class="servico-card">
+                    <h3>Teste de Glicemia</h3>
+                    <p>Monitoramento dos níveis de glicose no sangue.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contato" id="contato">
+        <h2>Entre em Contato</h2>
+        <form id="contato-form">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn">Enviar Mensagem</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 FarmaSaúde. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Dados dos produtos
+        const produtos = [
+            {
+                nome: "Vitamina C",
+                preco: "R$ 25,90",
+                imagem: "/api/placeholder/200/200"
+            },
+            {
+                nome: "Protetor Solar",
+                preco: "R$ 45,90",
+                imagem: "/api/placeholder/200/200"
+            },
+            {
+                nome: "Antialérgico",
+                preco: "R$ 15,90",
+                imagem: "/api/placeholder/200/200"
+            },
+            {
+                nome: "Máscara Facial",
+                preco: "R$ 5,90",
+                imagem: "/api/placeholder/200/200"
+            }
+        ];
+
+        // Função para criar cards de produtos
+        function criarProdutos() {
+            const container = document.getElementById('produtos-container');
+            
+            produtos.forEach(produto => {
+                const card = document.createElement('div');
+                card.className = 'produto-card';
+                
+                card.innerHTML = `
+                    <img src="${produto.imagem}" alt="${produto.nome}">
+                    <h3>${produto.nome}</h3>
+                    <p class="preco">${produto.preco}</p>
+                    <button class="btn" onclick="comprarProduto('${produto.nome}')">Comprar</button>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Função para simular compra
+        function comprarProduto(nome) {
+            alert(`Produto ${nome} adicionado ao carrinho!`);
+        }
+
+        // Manipulação do formulário de contato
+        document.getElementById('contato-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const mensagem = document.getElementById('mensagem').value;
+            
+            alert(`Mensagem enviada!\nNome: ${nome}\nEmail: ${email}\nMensagem: ${mensagem}`);
+            this.reset();
+        });
+
+        // Inicializar produtos
+        window.onload = criarProdutos;
+    </script>
+</body>
+</html>
